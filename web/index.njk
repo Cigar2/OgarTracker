@@ -2,5 +2,10 @@
   <title>OgarTracker</title>
 </head>
 <body>
-  <h1>Coming soon!</h1>
+  {% for object in servers %}
+  
+  {% else %}
+    <h1>No servers found</h1>
+  {% endfor %}
+  <footer>Last restart: {{lastRestart}}
 </body>
