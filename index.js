@@ -5,7 +5,9 @@ const env = nunjucks.configure(['web'], {
     express: app
 });
 
-app.use(express.static('web'));
+app.get('/', (req, res) => {
+    res.render('index.njk');
+});
 
 app.post('/addserver', (req, res) => {
   
