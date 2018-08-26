@@ -1,11 +1,26 @@
 <head>
   <title>OgarTracker</title>
 </head>
-<body> <!-- Todo table -->
+<body>
+  <table style="width: 100%;>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Gamemode</th>
+      <th>Online Since</th>
+      <th>Protocol</th>
+    </tr>
   {% for object in servers %}
-    <div>{{object.name}} | {{object.address}} | {{object.gamemode}} | {{object.onlineSince}} | {{object.protocol}}</div>
+    <tr>
+      <th>{{object.name}}</th>
+      <th>{{object.address}}</th>
+      <th>{{object.gamemode}}</th>
+      <th>{{object.onlineSince}}</th>
+      <th>{{object.protocol}}</th>
+    </tr>
   {% else %}
     <h1>No servers found</h1>
   {% endfor %}
+  </table>
   <footer>Last restart: {{lastRestart}}
 </body>
