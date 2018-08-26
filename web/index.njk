@@ -1,9 +1,9 @@
 <head>
   <title>OgarTracker</title>
 </head>
-<body>
+<body> <!-- Todo table -->
   {% for object in servers %}
-  
+    <div>{{object.name}} | {{object.address}} | {{object.gamemode}} | {{object.onlineSince}} | {{object.protocol}}</div>
   {% else %}
     <h1>No servers found</h1>
   {% endfor %}
