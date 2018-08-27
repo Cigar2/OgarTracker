@@ -14,17 +14,26 @@ let data = [{
     protocol: '18'
 }]; // todo database
 
-const startUpDate = Date.now();
+const startupDate = Date.now();
 
 app.get('/', (req, res) => {
     res.render('index.njk', {
         servers: data,
-        lastRestart: startUpDate
+        lastRestart: startupDate
     });
 });
 
-app.post('/addserver', (req, res) => {
-  data.push(req.query); // todo verification etc.
+app.use(express.json());
+
+app.post('/updateserver', (req, res) => {
+    const name = req.body.name, gamemode = req.body.gamemode, address = req.body.address, onlineSince = req.body,
+          operatingSystem = req.body.operatingSystem, protocol = req.body.protocol;
+    if(typeof name !== 'string' || typeof gamemode !== 'string' || typeof address !== 'string' ||
+       typeof onlineSince !== 'number' || typeof operatingSystem !== 'string' || typeof protocol !== 'string')
+        return res.json({success: false, error: 'Incomplete/invalid request.'});
+    const obj = {
+        name, gamemode, address, onlineSince, operatingSystem, protocol
+    };
 });
 
 app.listen(3000);
