@@ -1,2 +1,2 @@
 # OgarTracker
-Upcoming project
+Tracker for Ogar(+forks) servers
